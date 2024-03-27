@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : PlayerComponent
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public override void Initialize(PlayerManager pm){
+        base.Initialize(pm);
+
+        PhysicManager.instance.OnUpdate += Move;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Move(){
+
     }
 }
