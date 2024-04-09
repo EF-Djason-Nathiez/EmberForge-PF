@@ -1,19 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Artificial_Intelligence;
 using UnityEngine;
 
-public class PhysicManager : MonoBehaviour
+public class PhysicManager : MonoSingleton<PhysicManager>
 {
-    public static PhysicManager instance;
-
     public Action OnUpdate;
+    public Action OnFixedUpdate;
+    
+    private void Update()
+    {
+        OnUpdate?.Invoke();
+    }
 
-    void Awake(){
-        if(!instance){
-            instance = this;
-        }else{
-            Destroy(this);
-            Debug.WarningLog($"There is two instance of PhysicManager, please check {this.gameObject}.");
+    private void FixedUpdate()
+    {
+        OnFixedUpdate?.Invoke();
+        CheckDistance();
+    }
+
+    public Action<float, AI> OnDistance;
+
+    private void CheckDistance()
+    {
+        if(GameRepository.instance.visibleNPC.Count <= 0) return;
+        
+        foreach (AI npc in GameRepository.instance.visibleNPC)
+        {
+            float d = Vector3.Distance(GameRepository.instance.playerManager.player.position,
+                npc.go.transform.position);
+            OnDistance?.Invoke(d, npc);
         }
     }
+
 }

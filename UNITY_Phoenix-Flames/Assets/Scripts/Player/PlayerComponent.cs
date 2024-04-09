@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class PlayerComponent
+namespace Player
 {
-    private PlayerManager manager;
-    public virtual void Initialize(PlayerManager pm)
+    public abstract class PlayerComponent
     {
-        manager = pm;
+        protected PlayerManager manager;
+
+        public virtual void Initialize(PlayerManager pm)
+        {
+            manager = pm;
+        }
     }
 }

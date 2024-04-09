@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using Player;
+using Object = UnityEngine.Object;
 
-public class AbilityManager : MonoBehaviour
+[Serializable] public class AbilityManager : PlayerComponent
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Ability primary;
+    public Ability secondary;
+    public Ability first;
+    public Ability second;
 
-    // Update is called once per frame
-    void Update()
+    public override void Initialize(PlayerManager pm)
     {
+        base.Initialize(pm);
         
+        Ability instancePrimary = Object.Instantiate(primary);
+        primary = instancePrimary;
+        primary.Initialize();
     }
 }

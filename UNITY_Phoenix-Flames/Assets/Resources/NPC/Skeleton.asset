@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5023efdb941e8c778abdfeacfb7c8fba, type: 3}
+  m_Name: Skeleton
+  m_EditorClassIdentifier: 
+  title: Skeleton
+  entityType: 2
+  health: 100
+  speed: 3
+  go: {fileID: 0}
+  attackBehavior: {fileID: 0}
+  chaseBehavior: {fileID: 0}
+  followBehavior: {fileID: 0}
+  patrolBehavior: {fileID: 11400000, guid: acec4f3062008083fb1541303390dee1, type: 2}
